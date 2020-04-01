@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--application name-->
+    <string name="app_name">C&amp;T</string>
+
+    <!--bottom navigation-->
+    <string name="title_nav_recent">Trang Chủ</string>
+    <string name="title_nav_category">Thể Loại</string>
+    <string name="title_nav_help">Hỗ Trợ</string>
+    <string name="title_nav_profile">Hồ sơ</string>
+
+    <!--privacy policy-->
+    <string name="privacy_policy_url">https://www.solodroid.net/apps/privacy-policy/ecommerce/</string>
+
+    <!--share text-->
+    <string name="share_app">Tôi muốn chia sẻ MobileShopping này với bạn. Tại đây bạn có thể tải xuống ứng dụng này từ PlayStore</string>
+    <string name="share_product_section_one">Tìm</string>
+    <string name="share_product_section_two">với giá</string>
+    <string name="share_product_section_three">! Tải ngay ứng dụng Mobile Shopping !</string>
+
+    <!--network-->
+    <string name="no_internet">Vui lòng bật kết nối internet trước khi sử dụng ứng dụng này</string>
+
+    <!--title bar-->
+    <string name="title_cart">Giỏ hàng</string>
+    <string name="title_checkout">Thanh Toán</string>
+
+    <!--action-->
+    <string name="action_cart">Giỏ hàng của tôi</string>
+    <string name="action_clear">Xóa tất cả</string>
+
+    <!--menu, cart and order-->
+    <string name="search_query_text">Search&#8230;</string>
+    <string name="confirm">Xác nhận</string>
+    <string name="number_order">Nhập số lượng sản phẩm : </string>
+    <string name="clear_all_order">Bạn có muốn xóa tất cả sản phẩm của bạn?</string>
+    <string name="clear_one_order">Bạn có muốn sản phẩm này?</string>
+    <string name="db_exist_alert">Bạn có muốn xóa đơn đặt hàng của bạn?</string>
+    <string name="msg_empty_cart">Giỏ hàng trống!</string>
+    <string name="msg_no_history">Lịch sử đặt hàng của bạn trống!</string>
+    <string name="empty_cart">Rất tiếc, giỏ hàng của bạn trống</string>
+    <string name="btn_continue_shopping">Tiếp tục mua sắm</string>
+    <string name="btn_add_to_cart">THÊM VÀO GIỎ HÀNG</string>
+    <string name="btn_out_of_stock">HẾT HÀNG</string>
+    <string name="msg_stock_not_enough">Số lượng là không đủ</string>
+    <string name="msg_stock_below_0">số lượng sản phẩm không thể là 0</string>
+    <string name="msg_success_add_cart">Thêm thành công sản phẩm vào giỏ hàng</string>
+    <string name="btn_checkout">Thanh toán</string>
+
+    <!--checkout menu-->
+    <string name="checkout_your_name">Họ tên</string>
+    <string name="checkout_email">Email</string>
+    <string name="checkout_phone_number">Số điện thoại</string>
+    <string name="checkout_order_list">Order Chi tiết</string>
+    <string name="checkout_add_comment">Bình luận</string>
+    <string name="no_order_menu">No order</string>
+    <string name="txt_order">Order :</string>
+    <string name="txt_tax">Thuế :</string>
+    <string name="txt_total">Tổng :</string>
+    <string name="txt_shipping">Shipping</string>
+    <string name="checkout_fill_form">vui lòng điền vào mẫu trước!</string>
+    <string name="checkout_dialog_title">Quy trình thanh toán</string>
+    <string name="checkout_dialog_msg">Bạn có chắc chắn muốn thanh toán?</string>
+    <string name="checkout_submit_title">Xin vui lòng chờ</string>
+    <string name="checkout_submit_msg">Gửi đơn đặt hàng của bạn&#8230;</string>
+    <string name="checkout_success_title">Chúc mừng</string>
+    <string name="checkout_success_msg">Cảm ơn bạn đã đặt hàng, đơn hàng của bạn sẽ được xem xét sớm, chi tiết hóa đơn sẽ được gửi đến email của bạn khi đơn hàng đã sẵn sàng.</string>
+    <string name="checkout_option_ok">OK</string>
+    <string name="checkout_address">Địa chỉ</string>
+    <string name="checkout_shipping">Shipping</string>
+    <string name="title_history">Lịch sử đơn hàng</string>
+    <string name="title_profile">User Profile</string>
+    <string name="btn_process_checkout">Tiến Hành Thanh Toán</string>
+
+    <!--profile preferences-->
+    <string name="pref_group_profile">Hồ sơ</string>
+    <string name="pref_title_name">Họ tên</string>
+    <string name="pref_title_email">Email</string>
+    <string name="pref_title_phone">Số điện thoại</string>
+    <string name="pref_title_address">Địa chỉ</string>
+    <string name="default_your_name">Tên của bạn</string>
+    <string name="default_your_email">a@gmail.com</string>
+    <string name="default_your_phone">+84869135740</string>
+    <string name="default_your_address">Mời nhập địa chỉ của bạn</string>
+    <string name="pref_msg_invalid_name">Nhập tên không hợp lệ</string>
+    <string name="pref_msg_invalid_email">Nhập email không hợp lệ</string>
+    <string name="pref_msg_invalid_phone">Nhập số điện thoại không hợp lệ</string>
+    <string name="pref_msg_invalid_address">Nhập địa chỉ không hợp lệ</string>
+
+    <!--permission-->
+    <string name="permission_msg">Cần quyền</string>
+    <string name="permission_storage">Ứng dụng này cần lưu trữ truy cập để tải hình ảnh</string>
+    <string name="download_success">Hình ảnh đã được tải xuống và lưu trên thư viện.</string>
+    <string name="download_msg">Đang tải&#8230;</string>
+    <string name="loading_msg">Vui lòng đợi&#8230;</string>
+
+    <!--dialog choose option-->
+    <string name="dialog_option_yes">Có</string>
+    <string name="dialog_option_no">Không</string>
+    <string name="dialog_option_cancel">Hủy</string>
+    <string name="dialog_option_add">Thêm</string>
+    <string name="dialog_settings">Đi tới cài đặt</string>
+    <string name="msg_exit">Nhấn một lần nữa để thoát ứng dụng</string>
+    <string name="txt_items">item(s)</string>
+    <string name="title_img_save">Lưu</string>
+    <string name="title_img_close">Đóng</string>
+    <string name="msg_copy">Mã mua hàng được sao chép</string>
+    <string name="failed_fetch_data">Không thể lấy dữ liệu! Vui lòng thử lại.</string>
+    <string name="btn_edit_profile">Sửa</string>
+    <string name="txt_profile_history">Lịch sử đơn hàng</string>
+    <string name="txt_profile_rate">Đánh giá chúng tôi</string>
+    <string name="txt_profile_privacy">Chính sách bảo mật</string>
+    <string name="txt_total_order">Tổng đơn hàng</string>
+    <string name="txt_profile_share">Chia sẻ</string>
+
+</resources>
