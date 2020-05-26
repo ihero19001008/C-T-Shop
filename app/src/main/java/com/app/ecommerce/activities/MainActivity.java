@@ -7,6 +7,8 @@ import android.database.SQLException;
 import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+
+import com.android.volley.Request;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -55,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
     int pager_number = 4;
     DBHelper dbhelper;
     private long exitTime = 0;
+    double resp_tax;
+    String resp_currency_code;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -157,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
         if (Config.ENABLE_RTL_MODE) {
             viewPager.setRotationY(180);
         }
-
+        makeJsonObjectRequest();
     }
 
     public class MyAdapter extends FragmentPagerAdapter {
@@ -223,13 +227,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.cart:
+                Intent intent = new Intent(getApplicationContext(), ActivityCart.class);
+                intent.putExtra("tax", resp_tax);
+                intent.putExtra("currency_code", resp_currency_code);
+                startActivity(intent);
+                break;
             case android.R.id.home:
                 finish();
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+        return true;
     }
+
 
     @Override
     public void onBackPressed() {

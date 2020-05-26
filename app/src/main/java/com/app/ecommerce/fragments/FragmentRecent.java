@@ -18,8 +18,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -44,6 +46,7 @@ import static com.app.ecommerce.utilities.Constant.GET_RECENT_PRODUCT;
 
 public class FragmentRecent extends Fragment implements RecyclerAdapterProduct.ContactsAdapterListener {
 
+    private ViewFlipper viewFlipper;
     private RecyclerView recyclerView;
     private List<Product> productList;
     private RecyclerAdapterProduct mAdapter;
@@ -62,6 +65,12 @@ public class FragmentRecent extends Fragment implements RecyclerAdapterProduct.C
         if (Config.ENABLE_RTL_MODE) {
             lyt_root.setRotationY(180);
         }
+        viewFlipper = view.findViewById(R.id.vpSlider);
+        int[] images = {R.drawable.main1, R.drawable.main2, R.drawable.main3, R.drawable.main4};
+        for (int image : images) {
+            flipperImages(image);
+        }
+
 
         recyclerView = view.findViewById(R.id.recycler_view);
         productList = new ArrayList<>();
@@ -80,6 +89,17 @@ public class FragmentRecent extends Fragment implements RecyclerAdapterProduct.C
         return view;
     }
 
+    private void flipperImages(int image) {
+
+        ImageView imageView = new ImageView(getContext());
+        imageView.setBackgroundResource(image);
+        viewFlipper.addView(imageView);
+        viewFlipper.setFlipInterval(2500);
+        viewFlipper.setAutoStart(true);
+        viewFlipper.setInAnimation(getContext(), R.anim.fab_slide_in_from_right);
+        viewFlipper.setOutAnimation(getContext(),R.anim.fab_slide_out_to_left );
+    //    viewFlipper.setInAnimation(getContext(), android.R.anim.fade_in);
+    }
     private void onRefresh() {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

@@ -3,7 +3,8 @@ package com.app.ecommerce;
 public class Config {
 
     //your admin panel url
-    public static final String ADMIN_PANEL_URL = "https://cuahangdogiadungc-t.000webhostapp.com/";
+    public static final String ADMIN_PANEL_URL = "https://cuahanggiadungct.000webhostapp.com/";
+   // public static final String ADMIN_PANEL_URL = "http://192.168.2.116/public_html";
 
     //set false if you want price to be displayed in decimal
     public static final boolean ENABLE_DECIMAL_ROUNDING = true;

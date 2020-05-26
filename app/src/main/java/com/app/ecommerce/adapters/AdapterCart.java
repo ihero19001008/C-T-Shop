@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -30,6 +31,7 @@ public class AdapterCart extends RecyclerView.Adapter<AdapterCart.ViewHolder> {
         TextView product_quantity;
         TextView product_price;
         ImageView product_image;
+        Button btnPlus, btnMinus;
 
         public ViewHolder(View view) {
             super(view);
@@ -37,6 +39,9 @@ public class AdapterCart extends RecyclerView.Adapter<AdapterCart.ViewHolder> {
             product_quantity = view.findViewById(R.id.product_quantity);
             product_price = view.findViewById(R.id.product_price);
             product_image = view.findViewById(R.id.product_image);
+//            btnMinus = view.findViewById(R.id.btnIncrease);
+//            btnPlus = view.findViewById(R.id.btnDecrease);
+
         }
 
     }
@@ -56,20 +61,25 @@ public class AdapterCart extends RecyclerView.Adapter<AdapterCart.ViewHolder> {
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
         holder.product_name.setText(ActivityCart.product_name.get(position));
-
         if (Config.ENABLE_DECIMAL_ROUNDING) {
             double _single_item = ActivityCart.sub_total_price.get(position) / ActivityCart.product_quantity.get(position);
-            String single_item_price = String.format(Locale.GERMAN, "%1$,.0f", _single_item);
+            String single_item_price = String.format(Locale.getDefault(), "%1$,.0f", _single_item);
 
             holder.product_quantity.setText(single_item_price + " " + ActivityCart.currency_code.get(position) + " x " + ActivityCart.product_quantity.get(position));
 
-            String price = String.format(Locale.GERMAN, "%1$,.0f", ActivityCart.sub_total_price.get(position));
+            String price = String.format(Locale.getDefault(), "%1$,.0f", ActivityCart.sub_total_price.get(position));
             holder.product_price.setText(price + " " + ActivityCart.currency_code.get(position));
         } else {
             double _single_item = ActivityCart.sub_total_price.get(position) / ActivityCart.product_quantity.get(position);
 
             holder.product_quantity.setText(_single_item + " " + ActivityCart.currency_code.get(position) + " x " + ActivityCart.product_quantity.get(position));
-
+//            holder.btnPlus.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Integer soluong = ActivityCart.product_quantity.get(position);
+//                    ActivityCart.product_quantity.set(position,soluong+1);
+//                }
+//            });
             holder.product_price.setText(ActivityCart.sub_total_price.get(position) + " " + ActivityCart.currency_code.get(position));
         }
 

@@ -19,6 +19,7 @@ public class MyApplication extends Application {
         super.onCreate();
         mInstance = this;
 
+        // init OneSignal
         OneSignal.startInit(this)
                 .unsubscribeWhenNotificationsAreDisabled(true)
                 .init();

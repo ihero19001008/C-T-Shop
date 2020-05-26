@@ -8,8 +8,10 @@ buildscript {
 }
 apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
 
+
 repositories {
     maven { url 'https://maven.google.com' }
+    mavenCentral()
 }
 
 apply plugin: 'com.android.application'

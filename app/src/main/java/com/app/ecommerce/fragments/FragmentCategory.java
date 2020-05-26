@@ -53,7 +53,7 @@ public class FragmentCategory extends Fragment implements RecyclerAdapterCategor
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_recent, container, false);
+        View view = inflater.inflate(R.layout.fragment_category, container, false);
         setHasOptionsMenu(true);
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
 

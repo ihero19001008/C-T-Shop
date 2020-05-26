@@ -14,5 +14,6 @@ public class Constant {
     public static final String GET_TAX_CURRENCY = BASE_URL + "/api/api.php?get_tax_currency";
     public static final String GET_SHIPPING = BASE_URL + "/api/api.php?get_shipping";
     public static final String POST_ORDER = BASE_URL + "/api/api.php?post_order";
+    public static final String POST_ORDER_ITEM = BASE_URL + "/api/api.php?post_order_item";
 
 }

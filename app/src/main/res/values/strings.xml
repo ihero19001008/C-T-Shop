@@ -46,7 +46,7 @@
     <string name="msg_stock_not_enough">Số lượng là không đủ</string>
     <string name="msg_stock_below_0">số lượng sản phẩm không thể là 0</string>
     <string name="msg_success_add_cart">Thêm thành công sản phẩm vào giỏ hàng</string>
-    <string name="btn_checkout">Thanh toán</string>
+    <string name="btn_checkout">Đặt hàng</string>
 
     <!--checkout menu-->
     <string name="checkout_your_name">Họ tên</string>
@@ -71,7 +71,7 @@
     <string name="checkout_shipping">Shipping</string>
     <string name="title_history">Lịch sử đơn hàng</string>
     <string name="title_profile">User Profile</string>
-    <string name="btn_process_checkout">Tiến Hành Thanh Toán</string>
+    <string name="btn_process_checkout">Tiến Hành đặt hàng</string>
 
     <!--profile preferences-->
     <string name="pref_group_profile">Hồ sơ</string>
@@ -102,7 +102,7 @@
     <string name="dialog_option_add">Thêm</string>
     <string name="dialog_settings">Đi tới cài đặt</string>
     <string name="msg_exit">Nhấn một lần nữa để thoát ứng dụng</string>
-    <string name="txt_items">item(s)</string>
+    <string name="txt_items">Chiếc</string>
     <string name="title_img_save">Lưu</string>
     <string name="title_img_close">Đóng</string>
     <string name="msg_copy">Mã mua hàng được sao chép</string>

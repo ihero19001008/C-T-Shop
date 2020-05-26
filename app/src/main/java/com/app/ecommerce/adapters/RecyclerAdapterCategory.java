@@ -1,5 +1,6 @@
 package com.app.ecommerce.adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -17,6 +18,8 @@ import com.makeramen.roundedimageview.RoundedTransformationBuilder;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,11 +30,11 @@ public class RecyclerAdapterCategory extends RecyclerView.Adapter<RecyclerAdapte
     private List<Category> categoryListFiltered;
     private ContactsAdapterListener listener;
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView category_name, product_count;
-        public ImageView category_image;
+    class MyViewHolder extends RecyclerView.ViewHolder {
+        TextView category_name, product_count;
+        ImageView category_image;
 
-        public MyViewHolder(View view) {
+        MyViewHolder(View view) {
             super(view);
             category_name = view.findViewById(R.id.category_name);
             product_count = view.findViewById(R.id.product_count);
@@ -53,6 +56,7 @@ public class RecyclerAdapterCategory extends RecyclerView.Adapter<RecyclerAdapte
         this.categoryListFiltered = categoryList;
     }
 
+    @NotNull
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
@@ -61,6 +65,7 @@ public class RecyclerAdapterCategory extends RecyclerView.Adapter<RecyclerAdapte
         return new MyViewHolder(itemView);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
         final Category category = categoryListFiltered.get(position);

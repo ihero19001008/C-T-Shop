@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
+//get notification  in background and custom notification
 public class NotificationExtenderExample extends NotificationExtenderService {
 
     public static final int NOTIFICATION_ID = 1;

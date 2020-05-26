@@ -17,13 +17,18 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.os.StrictMode;
 import android.provider.Settings;
+
+import com.app.ecommerce.viewmodel.PageViewModel;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.ViewModelProvider;
+
 import android.text.InputFilter;
 import android.text.InputType;
 import android.util.Log;
@@ -68,12 +73,14 @@ import java.net.URL;
 import java.util.List;
 import java.util.Locale;
 
+import static com.app.ecommerce.utilities.Constant.GET_PRODUCT_ID;
 import static com.app.ecommerce.utilities.Constant.GET_TAX_CURRENCY;
 
 public class ActivityProductDetail extends AppCompatActivity {
 
     long product_id;
-    TextView txt_product_name, txt_product_price, txt_product_quantity;
+    private PageViewModel model;
+    TextView txt_product_name, txt_product_price, txt_product_quantity,tvnewQuantity;
     private String product_name, product_image, category_name, product_status, currency_code, product_description;
     private double product_price;
     private int product_quantity;
@@ -91,15 +98,19 @@ public class ActivityProductDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
-
+        model = new ViewModelProvider(this).get(PageViewModel.class);
+        tvnewQuantity = findViewById(R.id.tvnewQuantity);
         if (Config.ENABLE_RTL_MODE) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
                 getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
             }
         }
 
+
         dbhelper = new DBHelper(this);
         getData();
+        String tam = String.valueOf(product_quantity);
+        tvnewQuantity.setText(tam);
         initComponent();
         displayData();
         setupToolbar();
@@ -267,8 +278,12 @@ public class ActivityProductDetail extends AppCompatActivity {
                 String temp = edtQuantity.getText().toString();
                 int quantity = 0;
 
-                if (!temp.equalsIgnoreCase("")) {
+                makeJsonObjectRequestProduct();
+                Integer newquantity = 0;
 
+                if (!temp.equalsIgnoreCase("")) {
+                    makeJsonObjectRequestProduct();
+                    newquantity = Integer.valueOf(tvnewQuantity.getText().toString());
                     quantity = Integer.parseInt(temp);
 
                     if (quantity <= 0) {
@@ -282,6 +297,9 @@ public class ActivityProductDetail extends AppCompatActivity {
                             dbhelper.updateData(product_id, quantity, (product_price * quantity));
                         } else {
                             dbhelper.addData(product_id, product_name, quantity, (product_price * quantity), currency_code, product_image);
+                            String id = String.valueOf(product_id);
+                            Integer soluong  = Integer.valueOf(quantity);
+                         //   dbhelper.addDataDetail(product_id,product_name,id,soluong,id);
                         }
                     }
 
@@ -490,6 +508,40 @@ public class ActivityProductDetail extends AppCompatActivity {
                 pDialog.dismiss();
             }
         }
+    }
+
+    private void makeJsonObjectRequestProduct() {
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, GET_PRODUCT_ID + product_id, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                Log.d("INFO", response.toString());
+                try {
+                    Integer newQuan = response.getInt("product_quantity");
+                    txt_product_quantity.setText(newQuan + " " + getString(R.string.txt_items));
+                    tvnewQuantity.setText(String.valueOf(newQuan));
+                    tvnewQuantity.setVisibility(View.GONE);
+                    if (tvnewQuantity.getText()!= null){
+                        model.getCurrentName().setValue(newQuan.toString());
+                    }
+                    else {
+                        model.getCurrentName().setValue(tvnewQuantity.getText().toString());
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("INFO", "Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        MyApplication.getInstance().addToRequestQueue(jsonObjReq);
     }
 
 }

@@ -38,6 +38,13 @@ public class DBHelper extends SQLiteOpenHelper {
     private final String ORDER_TOTAL = "order_total";
     private final String DATE_TIME = "date_time";
 
+    private final String TABLE_DETAIL = "tbl_detail";
+    private final String DETAIL_ID = "id";
+    private final String CODE1 = "code";
+    private final String PRODUCT_ID = "product_id";
+    private final String QUANTITY1 = "quantity";
+    private final String CART_ID1 = "id";
+
     public DBHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
         this.context = context;
@@ -155,6 +162,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return dataArrays;
     }
 
+
     public boolean isDataExist(long id) {
         boolean exist = false;
         Cursor cursor = null;
@@ -234,6 +242,9 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
+    //add data detail cursor = db.query(TABLE_DETAIL, new String[]{DETAIL_ID, PRODUCT_NAME, PRODUCT_ID, QUANTITY},
+
+    // delete cart
     public void deleteData(long id) {
         try {
             db.delete(TABLE_CART, CART_ID + "=" + id, null);
@@ -243,6 +254,7 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
+
     public void deleteDataHistory(long id) {
         try {
             db.delete(TABLE_HISTORY, HISTORY_ID + "=" + id, null);
@@ -251,7 +263,7 @@ public class DBHelper extends SQLiteOpenHelper {
             e.printStackTrace();
         }
     }
-
+// delete all in cart
     public void deleteAllData() {
         try {
             db.delete(TABLE_CART, null, null);
@@ -260,6 +272,7 @@ public class DBHelper extends SQLiteOpenHelper {
             e.printStackTrace();
         }
     }
+
 
     public void deleteAllDataHistory() {
         try {

@@ -237,8 +237,8 @@ public class ActivityCart extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void result) {
 
-            String _price = String.format(Locale.GERMAN, "%1$,.0f", total_price);
-            String _tax = String.format(Locale.GERMAN, "%1$,.0f", str_tax);
+            String _price = String.format(Locale.getDefault(), "%1$,.0f", total_price);
+            String _tax = String.format(Locale.getDefault(), "%1$,.0f", str_tax);
 
             TextView txt_total_price = findViewById(R.id.txt_total_price);
             TextView txt_tax = findViewById(R.id.txt_tax);

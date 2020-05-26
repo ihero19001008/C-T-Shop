@@ -68,7 +68,7 @@ public class RecyclerAdapterProduct extends RecyclerView.Adapter<RecyclerAdapter
         holder.product_name.setText(product.getProduct_name());
 
         if (Config.ENABLE_DECIMAL_ROUNDING) {
-            String price = String.format(Locale.GERMAN, "%1$,.0f", product.getProduct_price());
+            String price = String.format(Locale.getDefault(), "%1$,.0f", product.getProduct_price());
             holder.product_price.setText(price + " " + product.getCurrency_code());
         } else {
             holder.product_price.setText(product.getProduct_price() + " " + product.getCurrency_code());
